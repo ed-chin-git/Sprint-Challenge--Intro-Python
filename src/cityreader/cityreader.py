@@ -36,8 +36,8 @@ def cityreader(cities=[]):
 cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
-for c in cities:
-    print(c)
+# for c in cities:
+#     print(c)
 
 
 # STRETCH GOAL!
@@ -70,34 +70,36 @@ for c in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO Get latitude and longitude values from the user
-latlon1 = input("Enter Lat1 Lon1 :>",)
-latlon2 = input("Enter Lat2 Lon2 :>",)
-lat_lon1 = latlon1.split()  # split into word list
-lat_lon2 = latlon2.split()  # split into word list
-inp_lat1 = float(lat_lon1[0])
-inp_lon1 = float(lat_lon1[1])
-inp_lat2 = float(lat_lon2[0])
-inp_lon2 = float(lat_lon2[1])
-if inp_lat1 > inp_lat2:
-    lat1 = inp_lat2
-    lat2 = inp_lat1
-else:
-    lat1 = inp_lat1
-    lat2 = inp_lat2
-
-
-if inp_lon1 > inp_lon2:
-    lon1 = inp_lon2
-    lon2 = inp_lon1
-else:
-    lon1 = inp_lon1
-    lon2 = inp_lon2
+# latlon1 = input("Enter Lat1 Lon1 :>",)
+# latlon2 = input("Enter Lat2 Lon2 :>",)
+# lat_lon1 = latlon1.split()  # split into word list
+# lat_lon2 = latlon2.split()  # split into word list
 
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
     # within will hold the cities that fall within the specified region
     within = []
-    # TODO Ensure that the lat and lon valuse are all floats
+
+    # Ensure that the lat and lon valuse are all floats
+    inp_lat1 = float(lat1)
+    inp_lon1 = float(lon1)
+    inp_lat2 = float(lat2)
+    inp_lon2 = float(lon2)
+
+    #  normalize
+    if inp_lat1 > inp_lat2:
+        lat1 = inp_lat2
+        lat2 = inp_lat1
+    else:
+        lat1 = inp_lat1
+        lat2 = inp_lat2
+    if inp_lon1 > inp_lon2:
+        lon1 = inp_lon2
+        lon2 = inp_lon1
+    else:
+        lon1 = inp_lon1
+        lon2 = inp_lon2
+
     # Go through each city and check to see if it falls within 
     # the specified coordinates.
     for c in cities:
@@ -106,6 +108,6 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
                 within.append(c)
     return within
 
-val_list = cityreader_stretch(lat1, lon1, lat2, lon2, cities)
-for c in val_list:
-    print(c)
+# val_list = cityreader_stretch(lat1, lon1, lat2, lon2, cities)
+# for c in val_list:
+#     print(c)
